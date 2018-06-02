@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo';
 
 import App from './components/App';
 import BracketList from './components/BracketList';
+import BracketCreate from './components/BracketCreate';
 
 const client = new ApolloClient({});
 
@@ -15,6 +16,7 @@ const Root = () => {
 			<Router history={hashHistory}>
 				<Route path="/" component={App}>
 					<IndexRoute component={BracketList} />
+					<Route path="/bracket/new" component={BracketCreate} />
 				</Route>
 			</Router>
 		</ApolloProvider>
