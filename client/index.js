@@ -1,3 +1,5 @@
+import './style/style.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
@@ -7,6 +9,7 @@ import { ApolloProvider } from 'react-apollo';
 import App from './components/App';
 import BracketList from './components/BracketList';
 import BracketCreate from './components/BracketCreate';
+import BracketDetail from './components/BracketDetail';
 
 const client = new ApolloClient({});
 
@@ -16,7 +19,8 @@ const Root = () => {
 			<Router history={hashHistory}>
 				<Route path="/" component={App}>
 					<IndexRoute component={BracketList} />
-					<Route path="/bracket/new" component={BracketCreate} />
+					<Route path="brackets/new" component={BracketCreate} />
+					<Route path="brackets/:id" component={BracketDetail} />
 				</Route>
 			</Router>
 		</ApolloProvider>
